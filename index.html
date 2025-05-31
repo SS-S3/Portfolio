@@ -40,19 +40,26 @@
             box-shadow: 0 0 10px rgba(64, 224, 255, 0.8);
         }
 
-        /* Navigation */
+        /* Enhanced Fixed Navigation */
         .navbar {
             position: fixed;
             top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            background: rgba(15, 15, 35, 0.9);
+            background: rgba(15, 15, 35, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(64, 224, 255, 0.2);
             border-radius: 50px;
             padding: 15px 30px;
             z-index: 1000;
             opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(15, 15, 35, 0.98);
+            box-shadow: 0 10px 40px rgba(64, 224, 255, 0.1);
+            border-color: rgba(64, 224, 255, 0.3);
         }
 
         .nav-links {
@@ -72,6 +79,21 @@
         .nav-links a:hover {
             color: #40e0ff;
             transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(45deg, #40e0ff, #4ecdc4);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
@@ -184,7 +206,7 @@
 
         .skills-visual {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             opacity: 0;
             transform: translateX(50px);
@@ -302,6 +324,108 @@
             transform: translateX(5px);
         }
 
+        /* Enhanced Social Media Section */
+        .social-section {
+            padding: 80px 0;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        .social-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .social-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #40e0ff;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .social-subtitle {
+            font-size: 1.2rem;
+            color: #b8b8b8;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 3rem auto;
+            padding: 2rem;
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(64, 224, 255, 0.2);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: rgba(64, 224, 255, 0.1);
+            border: 2px solid rgba(64, 224, 255, 0.3);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(64, 224, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .social-icons a:hover::before {
+            left: 100%;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(64, 224, 255, 0.3);
+            border-color: #40e0ff;
+        }
+
+        .social-icons a[href*="linkedin"]:hover {
+            background: #0077b5;
+            border-color: #0077b5;
+        }
+
+        .social-icons a[href*="github"]:hover {
+            background: #333;
+            border-color: #333;
+        }
+
+        .social-icons a:hover svg {
+            fill: #fff;
+        }
+
+        .social-icons svg {
+            width: 28px;
+            height: 28px;
+            fill: #40e0ff;
+            transition: fill 0.3s ease;
+        }
+
         /* Contact Section */
         .contact {
             padding: 100px 0;
@@ -384,7 +508,7 @@
             }
 
             .skills-visual {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
             }
 
             .navbar {
@@ -394,6 +518,40 @@
             .nav-links {
                 gap: 20px;
             }
+
+            .social-icons {
+                gap: 1.5rem;
+                padding: 1.5rem;
+                max-width: 300px;
+            }
+
+            .social-icons a {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-icons svg {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .social-icons {
+                gap: 1rem;
+                padding: 1rem;
+                max-width: 250px;
+            }
+
+            .social-icons a {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-icons svg {
+                width: 20px;
+                height: 20px;
+            }
         }
     </style>
 </head>
@@ -402,8 +560,8 @@
     <!-- Animated Background Particles -->
     <div class="particles" id="particles"></div>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Enhanced Navigation -->
+    <nav class="navbar" id="navbar">
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -439,12 +597,11 @@
                     the elegance of code with the tangible impact of connected devices.</p>
                 <p>From web applications to embedded systems, I love creating solutions that make a difference in
                     people's lives through technology.</p>
-                <p> Academic wise, I am pursuing my BTech. in Software Engineering from Delhi Technological University and BS for IIT Madras,
-                    where I am exploring the realms of software development, IoT, and AI. My projects reflect my commitment
+                <p>Academic wise, I am pursuing my BTech. in Software Engineering from Delhi Technological University
+                    and BS for IIT Madras,
+                    where I am exploring the realms of software development, IoT, and AI. My projects reflect my
+                    commitment
                     to innovation and my desire to push the boundaries of what's possible with technology.</p>
-
-                </p>
-                
             </div>
             <div class="skills-visual">
                 <div class="skill-item">
@@ -457,11 +614,6 @@
                     <h4>IoT Development</h4>
                     <p>Arduino, Raspberry Pi, MQTT</p>
                 </div>
-                <!-- <div class="skill-item">
-                    <div class="skill-icon">☁️</div>
-                    <h4>Cloud & DevOps</h4>
-                    <p>AWS, Docker, CI/CD</p>
-                </div> -->
                 <div class="skill-item">
                     <div class="skill-icon">📱</div>
                     <h4>Mobile Apps</h4>
@@ -472,11 +624,6 @@
                     <h4>AI & Machine Learning</h4>
                     <p>TensorFlow, PyTorch</p>
                 </div>
-                <!-- <div class="skill-item">
-                    <div class="skill-icon">🔐</div>
-                    <h4>Cybersecurity</h4>
-                    <p>Secure Coding, Encryption</p>
-                </div> -->
             </div>
         </div>
     </section>
@@ -489,10 +636,10 @@
                 <div class="project-card">
                     <span class="project-tag">IoT + AI + APP + Web</span>
                     <h3 class="project-title">Jatayu</h3>
-                    <p class="project-description">Jatayu is an integrated emergency healthcare response system designed to provide efficient and streamlined
-                    medical crisis management through a connected web platform.</p>
+                    <p class="project-description">Jatayu is an integrated emergency healthcare response system designed
+                        to provide efficient and streamlined
+                        medical crisis management through a connected web platform.</p>
                     <div class="project-links">
-                        
                         <a href="https://github.com/jatayu-reborn/Jatayu" class="project-link">GitHub →</a>
                     </div>
                 </div>
@@ -500,9 +647,9 @@
                 <div class="project-card">
                     <span class="project-tag">Web App</span>
                     <h3 class="project-title">PalabraFlow</h3>
-                    <p class="project-description">A full-stack React and Express translator powered by EASYNMT for translation between English and Spanish</p>
+                    <p class="project-description">A full-stack React and Express translator powered by EASYNMT for
+                        translation between English and Spanish</p>
                     <div class="project-links">
-                        <!-- <a href="#" class="project-link">Live Demo →</a> -->
                         <a href="#" class="project-link">GitHub →</a>
                     </div>
                 </div>
@@ -510,23 +657,39 @@
                 <div class="project-card">
                     <span class="project-tag">IoT + AI</span>
                     <h3 class="project-title">Barbarik</h3>
-                    <p class="project-description">An intelligent environmental monitoring solution, this project involves exploration for methods to detect effluent detection which shows anamoly in the fluid temprature</p>
+                    <p class="project-description">An intelligent environmental monitoring solution, this project
+                        involves exploration for methods to detect effluent detection which shows anamoly in the fluid
+                        temprature</p>
                     <div class="project-links">
-                        <!-- <a href="#" class="project-link">Live Demo →</a> -->
                         <a href="https://github.com/SS-S3/Barbarik" class="project-link">GitHub →</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- <div class="project-card">
-                    <span class="project-tag">Mobile</span>
-                    <h3 class="project-title">Fitness Tracker App</h3>
-                    <p class="project-description">A React Native fitness tracking application with wearable device
-                        integration and personalized workout recommendations.</p>
-                    <div class="project-links">
-                        <a href="#" class="project-link">App Store →</a>
-                        <a href="#" class="project-link">GitHub →</a>
-                    </div>
-                </div> -->
+    <!-- Enhanced Social Media Section -->
+    <section class="social-section">
+        <div class="social-container">
+            <h2 class="social-title">Let's Connect</h2>
+            <p class="social-subtitle">Follow my journey and connect with me on social platforms</p>
+
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/soumya-shekhar-973039287/" target="_blank" rel="noopener"
+                    title="Connect on LinkedIn" aria-label="LinkedIn Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path
+                            d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                    </svg>
+                </a>
+
+                <a href="https://github.com/SS-S3" target="_blank" rel="noopener" title="View GitHub Projects"
+                    aria-label="GitHub Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                        <path
+                            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.03 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
@@ -534,32 +697,30 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="contact-container">
-            <h2 class="section-title">Let's Connect</h2>
+            <h2 class="section-title">Get In Touch</h2>
             <p>Ready to bring your ideas to life? Let's discuss your next project!</p>
 
             <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
                 <input type="hidden" name="access_key" value="3a7d0ffe-6d11-4b18-9b7e-d4fe4fb92f11">
                 <input type="checkbox" name="botcheck" style="display: none;">
-            
+
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
                 </div>
-            
+
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-            
+
                 <div class="form-group">
                     <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
-            
+
                 <button type="submit" class="submit-btn">Send Message</button>
             </form>
-            
-            
         </div>
     </section>
 
@@ -594,6 +755,18 @@
         // Initialize animations when page loads
         document.addEventListener('DOMContentLoaded', function () {
             createParticles();
+
+            // Enhanced navbar scroll effect
+            window.addEventListener('scroll', function () {
+                const navbar = document.getElementById('navbar');
+                const scrolled = window.pageYOffset;
+
+                if (scrolled > 100) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
 
             // Animate navigation
             anime({
@@ -723,12 +896,45 @@
                                 easing: 'easeOutExpo'
                             });
                         }
+
+                        // Social section animations
+                        if (target.classList.contains('social-title')) {
+                            anime({
+                                targets: target,
+                                opacity: [0, 1],
+                                translateY: [30, 0],
+                                duration: 800,
+                                easing: 'easeOutExpo'
+                            });
+                        }
+
+                        if (target.classList.contains('social-subtitle')) {
+                            anime({
+                                targets: target,
+                                opacity: [0, 1],
+                                translateY: [20, 0],
+                                duration: 800,
+                                delay: 200,
+                                easing: 'easeOutExpo'
+                            });
+                        }
+
+                        if (target.classList.contains('social-icons')) {
+                            anime({
+                                targets: target,
+                                opacity: [0, 1],
+                                translateY: [30, 0],
+                                duration: 1000,
+                                delay: 400,
+                                easing: 'easeOutExpo'
+                            });
+                        }
                     }
                 });
             }, observerOptions);
 
             // Observe elements for scroll animations
-            document.querySelectorAll('.section-title, .about-text, .skills-visual, .project-card, .contact-form').forEach(el => {
+            document.querySelectorAll('.section-title, .about-text, .skills-visual, .project-card, .contact-form, .social-title, .social-subtitle, .social-icons').forEach(el => {
                 observer.observe(el);
             });
 
