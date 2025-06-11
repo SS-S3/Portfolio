@@ -30,8 +30,8 @@
             --mobile-secondary: #4ecdc4;
             --mobile-accent: #ffe66d;
             --mobile-gradient: linear-gradient(135deg, #c7530b 0%, #5cfd74 50%, #fecfef 100%);
-            --mobile-bg-primary: #69461b;
-            --mobile-bg-secondary: #260f54;
+            --mobile-bg-primary: #553c1f;
+            --mobile-bg-secondary: #5a7f73;
             --mobile-bg-tertiary: #1d2b23;
             --mobile-text-primary: #ffffff;
             --mobile-text-secondary: #f1f5f9;
@@ -213,7 +213,7 @@
         /* Projects Section */
         .projects {
             padding: 100px 0;
-            background: rgba(0, 0, 0, 0.2);
+
         }
 
         .projects-container {
@@ -304,7 +304,7 @@
         .social-section {
             padding: 80px 0;
             text-align: center;
-            background: rgba(0, 0, 0, 0.1);
+
         }
 
         .social-container {
@@ -839,12 +839,12 @@
             margin-bottom: var(--space-md);
             background: var(--primary-gradient);
             -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
             background-clip: text;
         }
     
         /* Mobile-specific styles */
-        @media (max-width: 1080px) {
+        @media (max-width: 1880px) {
             .code-element{
                 display: none;
             }
@@ -1005,7 +1005,7 @@
         }
     
         /* Mobile Timeline */
-        @media (max-width: 768px) {
+        @media (max-width: 9008px) {
             .timeline::after {
                 left: 20px;
             }
@@ -1143,28 +1143,30 @@
     <section class="about section" id="about">
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
-            <div class="about-text">
-                <h3>Bridging Software & Hardware</h3>
-                <p>I'm a passionate software developer with a deep fascination for IoT technologies. My journey combines
-                    the elegance of code with the tangible impact of connected devices.</p>
-                <p>From web applications to embedded systems, I love creating solutions that make a difference in
-                    people's lives through technology.</p>
-                <p>Academic wise, I am pursuing my BTech. in Software Engineering from Delhi Technological University
-                    and BS for IIT Madras,
-                    where I am exploring the realms of software development, IoT, and AI. My projects reflect my
-                    commitment
-                    to innovation and my desire to push the boundaries of what's possible with technology.</p>
+            <div class="achievement-card">
+                <h3 class="section-title">Bridging Software & Hardware</h3>
+                <div class="skills-visual">
+                    <p class="skill-item">I'm a passionate software developer with a deep fascination for IoT technologies. My journey combines
+                        the elegance of code with the tangible impact of connected devices.</p> 
+                    <p class="skill-item">From web applications to embedded systems, I love creating solutions that make a difference in
+                        people's lives through technology.</p> 
+                    </div> <br>
+                    <p class="achievement-card">Academic wise, I am pursuing my BTech. in Software Engineering from Delhi Technological University
+                        and BS for IIT Madras,
+                        where I am exploring the realms of software development, IoT, and AI. My projects reflect my
+                        commitment
+                        to innovation and my desire to push the boundaries of what's possible with technology.</p>
             </div>
             <div class="skills-visual">
                 <div class="skill-item">
                     <div class="skill-icon">💻</div>
                     <h4>Web Development</h4>
-                    <p>React, Node.js, Python</p>
+                    <p>React, Vue, Node/Express, Python</p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon">🔧</div>
                     <h4>IoT Development</h4>
-                    <p>Arduino, Raspberry Pi, MQTT</p>
+                    <p>Arduino, Raspberry Pi, STM, ESP, Drones</p>
                 </div>
                 <div class="skill-item">
                     <div class="skill-icon">📱</div>
@@ -1174,7 +1176,7 @@
                 <div class="skill-item">
                     <div class="skill-icon">🤖</div>
                     <h4>AI & Machine Learning</h4>
-                    <p>TensorFlow, PyTorch</p>
+                    <p>TensorFlow, PyTorch, LLMs</p>
                 </div>
             </div>
         </div>
@@ -1307,7 +1309,7 @@
                     <h3 class="project-title">TaskFlow Manager</h3>
                     <p class="project-description">Full-stack project management application built with Flask. Features real-time collaboration, task tracking, and analytics dashboard.</p>
                     <div class="project-links">
-                        <a href="https://task-assistant-axxn.onrender.com/" class="project-link">Live Site →</a>
+                        <!-- <a href="https://task-assistant-axxn.onrender.com/" class="project-link">Live Site →</a> -->
                         <a href="https://github.com/SS-S3/Chitragupta" class="project-link">GitHub →</a>
                     </div>
                 </div>
@@ -1340,6 +1342,7 @@
     <!-- Social Media Section -->
     <section class="social-section" id="social">
         <div class="social-container">
+
             <h2 class="social-title">Let's Connect</h2>
             <p class="social-subtitle">Follow my journey and connect with me on social platforms</p>
 
