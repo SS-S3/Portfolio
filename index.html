@@ -28,11 +28,11 @@
             /* Mobile Theme - Vibrant & Dynamic */
             --mobile-primary: #f4f4f5;
             --mobile-secondary: #4ecdc4;
-            --mobile-accent: #ffe66d;
-            --mobile-gradient: linear-gradient(135deg, #c7530b 0%, #5cfd74 50%, #fecfef 100%);
-            --mobile-bg-primary: #553c1f;
-            --mobile-bg-secondary: #5a7f73;
-            --mobile-bg-tertiary: #1d2b23;
+            --mobile-accent: #1a170b;
+            --mobile-gradient: linear-gradient(115deg, #b70bc7 0%, #9f8a33 50%, #d8f405 100%);
+            --mobile-bg-primary: #0e0e0d;
+            --mobile-bg-secondary: #0d0d13;
+            --mobile-bg-tertiary: #0c0d0c;
             --mobile-text-primary: #ffffff;
             --mobile-text-secondary: #f1f5f9;
             --mobile-text-muted: #cbd5e1;
@@ -526,7 +526,7 @@
         .navbar {
             position: fixed;
             top: var(--space-lg);
-            left: 50%;
+            left: 30%;
             transform: translateX(-50%);
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
@@ -854,8 +854,8 @@
                 top: var(--space-sm);
                 left: var(--space-sm);
                 right: var(--space-sm);
-                transform: none;
-                padding: var(--space-sm) var(--space-md);
+                transform:scaleX(0.8,0.5);
+
                 border-radius: var(--radius-2xl);
                 background: var(--glass-bg);
                 backdrop-filter: blur(15px);
@@ -960,7 +960,7 @@
         }
     
         .timeline-item {
-            padding: var(--space-md) var(--space-xl);
+            padding: var(--space-md) ;
             position: relative;
             background-color: inherit;
             width: 50%;
@@ -972,7 +972,7 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            right: -10px;
+
             background: var(--primary-gradient);
             border-radius: 50%;
             top: 30px;
@@ -980,13 +980,9 @@
             border: 3px solid var(--bg-primary);
         }
     
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
+        
     
-        .timeline-item:nth-child(even)::after {
-            left: -10px;
-        }
+        
     
         .timeline-content {
             padding: var(--space-xl);
@@ -1106,7 +1102,7 @@
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
+            <!-- <li><a href="#education">Education</a></li> -->
             <li><a href="#achievements">Achievements</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
@@ -1347,6 +1343,12 @@
             <p class="social-subtitle">Follow my journey and connect with me on social platforms</p>
 
             <div class="social-icons">
+                <a href="https://x.com/ShekharSou8000" target="_blank" rel="noopener" title="Follow on X" aria-label="X Profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                </a>
                 <a href="https://www.linkedin.com/in/soumya-shekhar-973039287/" target="_blank" rel="noopener"
                     title="Connect on LinkedIn" aria-label="LinkedIn Profile">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
